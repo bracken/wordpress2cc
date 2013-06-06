@@ -10,6 +10,7 @@ module Wordpress2CC
     element :status, String, :tag => 'wp:status'
     element :post_parent, String, :tag => 'wp:post_parent'
     element :post_type, String, :tag => 'wp:post_type'
+    element :post_name, String, :tag => 'wp:post_name'
     has_many :categories, Wordpress2CC::Category
     attr_accessor :tags
 

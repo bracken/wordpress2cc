@@ -8,7 +8,9 @@ module Wordpress2CC
     element :pub_date, String, :tag => 'pubDate'
     element :language, String, :tag => 'language'
     element :wp_version, String, :tag => 'wp:wxr_version'
+    has_many :categories, Wordpress2CC::TopCategory
     has_many :posts, Wordpress2CC::Post
+    attr_reader :id
 
     def self.read(backup_file)
       xml = File.read(backup_file)

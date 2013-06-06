@@ -6,5 +6,6 @@ module Wordpress2CC
     attribute :domain, String
     attribute :nicename, String
     content :name
+    element :category_nicename, String, :tag => 'wp:category_nicename'
   end
 end

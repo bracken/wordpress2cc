@@ -11,6 +11,12 @@ class TestUnitWordpressBackup < MiniTest::Unit::TestCase
     @backup.parse!
   end
 
+  def test_has_top_level_categories
+    assert_equal @backup.categories.length, 4
+    names = @backup.categories.map{|c|c.name}.sort
+    assert_equal names, ['Three', 'Uncategorized', 'cool', 'kind of']
+  end
+
   def test_has_channel_info
     assert_equal @backup.channel.title, 'instbrack'
     assert_equal @backup.channel.description, 'Tag Line of Glory'
@@ -27,6 +33,7 @@ class TestUnitWordpressBackup < MiniTest::Unit::TestCase
     assert_equal post.content, "Need stuff for <strong>testing</strong>"
     assert_equal post.title, 'First Post'
     assert_equal post.status, 'publish'
+    assert_equal post.post_name, 'first-post'
   end
 
   def test_has_all_pages

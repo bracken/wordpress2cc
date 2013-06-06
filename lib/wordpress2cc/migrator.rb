@@ -9,7 +9,7 @@ module Wordpress2CC
     end
 
     def migrate
-      backup = WordPress2CC::Backup.new @source
+      backup = Wordpress2CC::Backup.new @source
       backup.parse!
       @converter = Wordpress2CC::CC::Converter.new backup, @destination
       @converter.convert
