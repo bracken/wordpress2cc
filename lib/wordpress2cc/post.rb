@@ -10,8 +10,12 @@ module Wordpress2CC
     element :status, String, :tag => 'wp:status'
     element :post_parent, String, :tag => 'wp:post_parent'
     element :post_type, String, :tag => 'wp:post_type'
+    has_many :categories, Wordpress2CC::Category
+    attr_accessor :tags
 
-    after_parse do |item|
+    after_parse do |post|
+      post.tags = post.categories.select{|c|c.domain == 'post_tag'}
+      post.categories = post.categories.select{|c|c.domain == 'category'}
     end
   end
 end
