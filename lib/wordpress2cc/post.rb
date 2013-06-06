@@ -4,7 +4,7 @@ module Wordpress2CC
 
     tag 'item'
     element :title, String, :tag => 'title'
-    element :pudDate, String, :tag => 'pubDate'
+    element :pud_date, String, :tag => 'pubDate'
     element :content, String, :tag => 'content:encoded'
     element :post_id, String, :tag => 'wp:post_id'
     element :status, String, :tag => 'wp:status'

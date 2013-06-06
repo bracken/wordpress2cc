@@ -3,12 +3,19 @@ require 'test_helper'
 require 'wordpress2cc'
 require 'pp'
 
-class TestUnitMoodleBackup < MiniTest::Unit::TestCase
+class TestUnitWordpressBackup < MiniTest::Unit::TestCase
   include TestHelper
 
   def setup
     @backup = Wordpress2CC::Backup.new(backup_fixture)
     @backup.parse!
+  end
+
+  def test_has_channel_info
+    assert_equal @backup.channel.title, 'instbrack'
+    assert_equal @backup.channel.description, 'Tag Line of Glory'
+    assert_equal @backup.channel.pub_date, 'Thu, 06 Jun 2013 13:46:06 +0000'
+    assert_equal @backup.channel.language, 'en'
   end
 
   def test_has_all_posts

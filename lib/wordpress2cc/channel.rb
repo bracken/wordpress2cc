@@ -3,6 +3,11 @@ module Wordpress2CC
     include HappyMapper
 
     tag 'channel'
+    element :title, String, :tag => 'title'
+    element :description, String, :tag => 'description'
+    element :pub_date, String, :tag => 'pubDate'
+    element :language, String, :tag => 'language'
+    element :wp_version, String, :tag => 'wp:wxr_version'
     has_many :posts, Wordpress2CC::Post
 
     def self.read(backup_file)
